@@ -37,7 +37,16 @@ namespace HomeTaskManger.Model
         }
         public ObservableCollection<ItemModel> SubItems
         {
-            get => subItems;
+            get
+            {
+                if(subItems != null)
+                {
+                    return subItems;
+                }
+                subItems = new ObservableCollection<ItemModel>();
+                return subItems;
+            }
+
             set
             {
                 subItems = value;
@@ -47,9 +56,29 @@ namespace HomeTaskManger.Model
 
         #endregion
 
-        private void SubCTOR(SubItemLvl itemLvl)
+        #region CTOR
+
+        public ItemModel(SubItemLvl subItem)
+        {
+            SubCTOR(subItem);
+        }
+        public ItemModel()
         {
 
+        }
+
+        #endregion
+
+        private void SubCTOR(SubItemLvl itemLvl)
+        {
+            if(itemLvl == 0)
+            {
+                return;
+            }
+            for (int i = 0; i < (int)itemLvl; i++)
+            {
+                SubItems.Add(new ItemModel { Id = i + 1 });
+            }
         }
         #region NotifyPropChanged
 
@@ -60,11 +89,5 @@ namespace HomeTaskManger.Model
         } 
         #endregion
     }
-    public enum SubItemLvl
-    {
-        None = 0,
-        One,
-        Two,
-        Three
-    }
+    
 }

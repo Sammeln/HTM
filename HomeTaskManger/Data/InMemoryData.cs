@@ -66,11 +66,20 @@ namespace HomeTaskManger.Data
         {
             Items = new ObservableCollection<ItemModel>
             {
+                new ItemModel(SubItemLvl.Three),
+                new ItemModel(SubItemLvl.None),
+                new ItemModel(SubItemLvl.One),
                 new ItemModel
                 {
-                    Id = 1,
-                    Name = "Name"
+                    SubItems = new ObservableCollection<ItemModel>
+                    {
+                        new ItemModel(SubItemLvl.Three),
+                        new ItemModel(SubItemLvl.None),
+                        new ItemModel(SubItemLvl.One),
+                        new ItemModel(SubItemLvl.Two)
+                    }
                 }
+
             };
         }
         #endregion
