@@ -8,28 +8,30 @@ namespace HomeTaskManger.ViewModel
 {
     public class TreeViewModel : BaseViewModel, INotifyPropertyChanged
     {
-        ObservableCollection<ItemModel> tree;
 
-        public ObservableCollection<ItemModel> Tree
+        ObservableCollection<ItemModel> subItems;
+
+        public ObservableCollection<ItemModel> SubItems
         {
             get
             {
-                if (tree != null)
-                {
-                    return tree;
-                }
-                return tree = new ObservableCollection<ItemModel>();
+                //if (tree != null)
+                //{
+                //    return tree;
+                //}
+                //return tree = new ObservableCollection<ItemModel>();
+                return subItems;
             }
             set
             {
-                tree = value;
-                OnPropertyChanged(nameof(Tree));
+                subItems = value;
+                OnPropertyChanged(nameof(SubItems));
             }
         }
 
         public TreeViewModel()
         {
-            tree = InMemoryData.Instance.Items;
+            SubItems = InMemoryData.Instance.Items;
         }
 
     }

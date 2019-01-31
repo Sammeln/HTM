@@ -71,6 +71,7 @@ namespace HomeTaskManger.Data
                 new ItemModel(SubItemLvl.One),
                 new ItemModel
                 {
+                    Name = "NAME",
                     SubItems = new ObservableCollection<ItemModel>
                     {
                         new ItemModel(SubItemLvl.Three),

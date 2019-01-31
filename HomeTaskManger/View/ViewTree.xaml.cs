@@ -5,9 +5,9 @@ namespace HomeTaskManger.View
     /// <summary>
     /// Логика взаимодействия для TreeView.xaml
     /// </summary>
-    public partial class TreeView : UserControl
+    public partial class ViewTree : UserControl
     {
-        public TreeView()
+        public ViewTree()
         {
             InitializeComponent();
             DataContext = new TreeViewModel();
