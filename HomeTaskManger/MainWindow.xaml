@@ -4,9 +4,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomeTaskManger"
+        
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TreeView
+            ItemsSource="{Binding SubItems}"    >
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate
+                    ItemsSource="{Binding SubItems}">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="{Binding Id}"/>
+                        <TextBlock
+                            Text=". "/>
+                        <TextBlock
+                            Text="{Binding Name}"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
     </Grid>
 </Window>
